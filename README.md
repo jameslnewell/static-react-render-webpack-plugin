@@ -1,6 +1,6 @@
 # static-react-render-webpack-plugin
 
-Render static sites with `React` in `Webpack`.
+Render static sites with `React` and `Webpack`.
 
 ## Installation
 
@@ -11,12 +11,12 @@ Render static sites with `React` in `Webpack`.
 `webpack.config.js`
 ```js
 const path = require('path');
-const StaticReactRenderWebpackPlugin = require('tatic-react-render-webpack-plugin');
+const StaticReactRenderWebpackPlugin = require('static-react-render-webpack-plugin');
 
 module.exports = {
   
   context: path.join(__dirname, 'src'),
-  
+
   entry: {
     layout: './src/layout/index.jsx',
     productList: './src/pages/product-list/index.jsx',
@@ -25,8 +25,11 @@ module.exports = {
   
   output: {
     path: path.join(__dirname, 'dest'),
-    publicPath: '/'
+    publicPath: '/',
+    libraryTarget: 'commonjs' /* required so the plugin can load your components */
   },
+    
+  target: 'node', /* required so the plugin can evaluate your components on node */
   
   /* ...configure loaders, resolvers, etc... */
   

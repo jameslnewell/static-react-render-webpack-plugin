@@ -95,7 +95,11 @@ describe('static-react-render-webpack-plugin', () => {
     handlers.emit(compilation, error => {
       checkAndStop(done)(
         error,
-        () => expect(compilation).property('assets').to.have.property('index.html')
+        () => {
+          expect(compilation).property('assets').to.have.a.property('index.html');
+          expect(compilation).property('assets').property('index.html').to.have.a.property('size').to.be.a('function');
+          expect(compilation).property('assets').property('index.html').to.have.a.property('source').to.be.a('function');
+        }
       );
     });
 
