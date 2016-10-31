@@ -109,8 +109,36 @@ export default ({product}) => (
 
 ## Options
 
-### layout
-### getLayoutProps
+##### layout
 
-### pages
-### getPageProps
+The name of the layout chunk.
+
+> Required. A `string`.
+
+##### pages
+
+The names of the page chunks.
+
+> Required. An `array` of `string`s.
+
+##### getLayoutProps
+
+A function modifying the props passed to the layout component.
+
+> Optional. A `function(props, context) : object` where:
+- `props` is an `object`
+- `context` is an `object` containing:
+    - `pageChunk`
+    - `layoutChunk`
+    - `compilation`
+    
+##### getPageProps
+
+A function modifying the props passed to the page component.
+
+> Optional. A `function(props, context) : object` where:
+- `props` is an `object`
+- `context` is an `object` containing:
+    - `pageChunk`
+    - `layoutChunk`
+    - `compilation`

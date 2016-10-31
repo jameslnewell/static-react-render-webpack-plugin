@@ -39,23 +39,23 @@ const createCompilation = () => ({
     {
       name: 'layout',
       files: [
-        'layout/index.jsx'
+        'layout/index.js'
       ]
     },
     {
       name: 'page',
       files: [
-        'page/index.jsx'
+        'page/index.js'
       ]
     }
   ],
   assets: {
-    'layout/index.jsx': {
+    'layout/index.js': {
       source() {
         return layoutSource;
       }
     },
-    'page/index.jsx': {
+    'page/index.js': {
       source() {
         return pageSource;
       }
@@ -77,7 +77,7 @@ describe('static-react-render-webpack-plugin', () => {
     handlers.emit(compilation, error => {
       checkAndStop(done)(
         error,
-        () => expect(compilation).property('assets').to.not.have.property('page/index.jsx')
+        () => expect(compilation).property('assets').to.not.have.property('page/index.js')
       );
     });
 
