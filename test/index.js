@@ -12,11 +12,14 @@ module.exports = {
 
 const pageSource = `
 const React = require('react');
-module.exports = {
-  getPath: () => 'index.html',
-  default: props => React.createElement('h1', {}, 'Hello World!')
-};`;
 
+const MyComponent = props => React.createElement('h1', {}, 'Hello World!');
+
+MyComponent.getPath = () => 'index.html';
+
+module.exports = {
+  default: MyComponent
+};`;
 
 const getPluginHandlers = plugin => {
   let handlers = {};

@@ -70,6 +70,33 @@ export default ({children}) => (
 ```js
 import fetchProducts from '../../fetchProducts';
 
+export default class ProductList extends React.Component {
+  
+  static getPath = ({product}) => `products/${product.slug}/index.html`;
+  
+  static getProps = () => fetchProducts()
+    .then(products => ({products}))
+  ;
+
+  render() {
+    const {product} = this.props;
+    return (
+      <div>
+        <h1>Products</h1>
+        <ul>
+          {products.map(product => (
+            <li>
+              <a href={`products/${product.slug}/`}>{product.name}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+    
+}
+import fetchProducts from '../../fetchProducts';
+
 export const getPath = () => 'products/index.html';
 
 export const getProps = () => fetchProducts()
@@ -93,18 +120,26 @@ export default ({products}) => (
 ```js
 import fetchProducts from '../../fetchProducts';
 
-export const getPath = ({product}) => `products/${product.slug}/index.html`;
+export default class ProductPage extends React.Component {
+  
+  static getPath = ({product}) => `products/${product.slug}/index.html`;
+  
+  static getProps = () => fetchProducts()
+    .then(products => products.map(product => ({product})))
+  ;
 
-export const getProps = () => fetchProducts()
-  .then(products => products.map(product => ({product})))
-;
+  render() {
+    const {product} = this.props;
+    return (
+      <div>
+        <h1>{product.name}</h1>
+        <h2>{product.price}</h2>
+      </div>  
+    );
+  }
+    
+}
 
-export default ({product}) => (
-  <div>
-    <h1>{product.name}</h1>
-    <h2>{product.price}</h2>
-  </div>
-);
 ```
 
 ## Options
@@ -142,3 +177,9 @@ A function modifying the props passed to the page component.
     - `pageChunk`
     - `layoutChunk`
     - `compilation`
+    
+# Change log
+
+## 0.3.0
+
+- break: moved `.getPath()` and `.getProps()` to the component
