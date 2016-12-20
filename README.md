@@ -180,6 +180,11 @@ A function modifying the props passed to the page component.
     
 # Change log
 
+## 0.3.1
+
+- fix: remove unnecessary log
+- fix: report errors
+
 ## 0.3.0
 
 - break: moved `.getPath()` and `.getProps()` to the component
