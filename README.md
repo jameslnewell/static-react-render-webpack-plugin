@@ -79,7 +79,7 @@ export default class ProductList extends React.Component {
   ;
 
   render() {
-    const {product} = this.props;
+    const {products} = this.props;
     return (
       <div>
         <h1>Products</h1>
@@ -95,26 +95,7 @@ export default class ProductList extends React.Component {
   }
     
 }
-import fetchProducts from '../../fetchProducts';
 
-export const getPath = () => 'products/index.html';
-
-export const getProps = () => fetchProducts()
-  .then(products => ({products}))
-;
-
-export default ({products}) => (
-  <div>
-    <h1>Products</h1>
-    <ul>
-      {products.map(product => (
-        <li>
-          <a href={`products/${product.slug}/`}>{product.name}</a>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
 ```
 `./src/pages/product-page/index.jsx` - creates multiple HTML files describing each individual product
 ```js
@@ -179,6 +160,10 @@ A function modifying the props passed to the page component.
     - `compilation`
     
 # Change log
+
+## 0.3.2
+
+- fix: doco
 
 ## 0.3.1
 
