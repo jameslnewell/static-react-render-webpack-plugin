@@ -161,6 +161,10 @@ A function modifying the props passed to the page component.
     
 # Change log
 
+## 0.4.0
+
+- add: automatically add the HTML doctype to HTML documents beginning with `<html`
+
 ## 0.3.3
 
 - fix: support non-transpiled modules
