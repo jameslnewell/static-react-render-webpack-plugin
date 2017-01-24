@@ -26,7 +26,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dest'),
     publicPath: '/',
-    libraryTarget: 'commonjs' /* required so the plugin can load your components */
+    libraryTarget: 'commonjs' /* required so the plugin can evaluate your components */
   },
     
   target: 'node', /* required so the plugin can evaluate your components on node */
@@ -160,6 +160,11 @@ A function modifying the props passed to the page component.
     - `compilation`
     
 # Change log
+
+## 0.5.0
+
+- add: Passing the page props to the layout component (e.g. so in the layout you can render them as JSON and resume rendering 
+with them on the client). If you are passing a prop named `props` to the layout you won't be able to access the page props.
 
 ## 0.4.0
 
