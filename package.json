@@ -1,6 +1,6 @@
 {
   "name": "static-react-render-webpack-plugin",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "main": "./lib/index.js",
   "repository": "jameslnewell/static-react-render-webpack-plugin",
   "dependencies": {
@@ -12,7 +12,7 @@
     "mocha": "^3.1.2",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "sinon": "^1.17.6"
+    "sinon": "^2.1.0"
   },
   "peerDependencies": {
     "react": "^0.14 || ^15",

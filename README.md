@@ -161,6 +161,10 @@ A function modifying the props passed to the page component.
     
 # Change log
 
+## 0.6.0
+
+- add: Support `__dirname` and `__filename`.
+
 ## 0.5.0
 
 - add: Passing the page props to the layout component (e.g. so in the layout you can render them as JSON and resume rendering 

@@ -26,6 +26,12 @@ const getPluginHandlers = plugin => {
 
   const fakeCompiler = {
 
+    options: {
+      output: {
+        path: '/foo/bar/'
+      }
+    },
+
     plugin(name, handler) {
       handlers[name] = handler;
     }
