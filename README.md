@@ -161,6 +161,10 @@ A function modifying the props passed to the page component.
     
 # Change log
 
+## 0.6.1
+
+- fix: bug where `modifiedProps` weren't being passed through to an array of pages
+
 ## 0.6.0
 
 - add: Support `__dirname` and `__filename`.
